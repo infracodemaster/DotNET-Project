@@ -31,3 +31,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+- task: UniversalPackages@0
+  inputs:
+    command: 'publish'
+    publishDirectory: '$(build.artifactStagingDirectory)'
+    feedsToUse: 'internal'
+    vstsFeedPublish: 'DBCheque-IAC/DOTNETPROJECT'    # ProjectName/FeedName
+    packagePublishDescription: 'Web App build package'
+    versionOption: 'minor'                    # Auto-increments version
+
